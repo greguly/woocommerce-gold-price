@@ -9,6 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC requires at least: 3.0
 WC tested up to: 4.0.1
+Requires PHP: 5.2
 
 Adds Gold Price to WooCommerce plugin, tested up to WooCommerce 2.6.6
 
