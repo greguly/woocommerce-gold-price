@@ -61,7 +61,8 @@ Please notice that WooCommerce must be installed and active.
 There is a handy link to edit the product, if one whishes to put it on sale again.
 
 == Changelog ==
-= 4.0.0 2020.04.01 =
+
+= 4.0.0 2020.04.09 =
 * Updated for WordPress 5.4 and WooCommerce 4.0;
 * New interface for marking product as gold, not longer using 'karat' Custom Fields
 * Added option for Spread %
