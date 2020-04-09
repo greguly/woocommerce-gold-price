@@ -214,7 +214,12 @@ function woocommerce_gold_price() {
 				'post_type'      => 'product',
 				'posts_per_page' => -1,
 				'meta_key'       => 'is_gold_price_product',
-				'meta_value'     => substr( $key, 0, -1 ) // meta values 24k, 22k, 18k, 14k  => 24, 22, 18, 14
+				'meta_value'     => 'yes',
+				'meta_query'     => array(
+        		    'key'     => 'gold_price_karats',
+            		'value'   =>  $key,
+		            'compare' => '=',
+        			),
 				) ); 
 
 			?>
@@ -610,8 +615,9 @@ function woocommerce_gold_price() {
 
 		$is_gold_price_product = get_post_meta( $thepostid, 'is_gold_price_product', true );
 
-		$fee     = get_post_meta( $thepostid, 'gold_price_product_fee', true );
+		$karats  = get_post_meta( $thepostid, 'gold_price_karats', true );
 		$spread  = get_post_meta( $thepostid, 'gold_price_product_spread', true );
+		$fee     = get_post_meta( $thepostid, 'gold_price_product_fee', true );
 
 		// easy access to weight
 		$product        = wc_get_product( $thepostid );
@@ -626,9 +632,21 @@ function woocommerce_gold_price() {
 			</p>
 
 			<p class="form-field">
+				<label for="karats">
+				<?php  esc_html_e( 'Purity', 'woocommerce-gold-price' )?></label>
+				<select name="karats" id='karats' style="float: none;">
+					<option value="24k" <?php selected( '24k', $karats );?>><?php  esc_html_e( '24k', 'woocommerce-gold-price' )?></option>
+					<option value="22k" <?php selected( '22k', $karats );?>><?php  esc_html_e( '22k', 'woocommerce-gold-price' )?></option>
+					<option value="18k" <?php selected( '18k', $karats );?>><?php  esc_html_e( '18k', 'woocommerce-gold-price' )?></option>
+					<option value="14k" <?php selected( '14k', $karats );?>><?php  esc_html_e( '14k', 'woocommerce-gold-price' )?></option>
+				</select>
+
+			</p>
+
+			<p class="form-field">
 				<label for="product_weight"><?php  esc_html_e( 'Product weight', 'woocommerce-gold-price' ); echo ' (' . get_option( 'woocommerce_weight_unit' ) . ')'?></label>
 				<input type="text" class="short" id="product_weight" name="product_weight" value="<?php echo $product_weight; ?>"  />
-			</p>		
+			</p>
 
 			<p class="form-field">
 				<label for="spread"><?php  esc_html_e( 'Spread (%)', 'woocommerce-gold-price' )?></label>
@@ -648,6 +666,8 @@ function woocommerce_gold_price() {
 		// gold product 
 		$is_gold_price_product = isset( $_POST['is_gold_price_product'] ) ? 'yes' : 'no';
 		update_post_meta( $post_id, 'is_gold_price_product', $is_gold_price_product );
+
+		update_post_meta( $post_id, 'gold_price_karats', wc_clean( $_POST['karats'] ) );
 
 		// spread % and fee
 		update_post_meta( $post_id, 'gold_price_product_spread', wc_clean( $_POST['spread'] ) );
