@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce Gold Price
  * Plugin URI: https://omniwp.com.br/
- * Description: Adds a Gold Price for 24k gold products, making easy to update their prices
+ * Description: Adds a Gold Price for 24k, 22k, 18k and 14k gold products, making easy to update their prices
  * Version: 4.0
  * Author: Gabriel Reguly
  * Author URI: https://omniwp.com.br/
@@ -38,7 +38,6 @@ function woocommerce_gold_price() {
 
 	// i18n
 	load_plugin_textdomain( 'woocommerce-gold-price', false, '/woocommerce-gold-price/languages' );
-
 
 
 	function woocommerce_gold_price_weight_description() {
@@ -97,8 +96,8 @@ function woocommerce_gold_price() {
 			*/
 
 			add_submenu_page( 'woocommerce',
-				 __( 'Gold Price', 'woocommerce-gold-price' ),
-				 __( 'Gold Price', 'woocommerce-gold-price' ) ,
+				 __( 'Gold Prices and Gold Products', 'woocommerce-gold-price' ),
+				 __( 'Gold Prices', 'woocommerce-gold-price' ) ,
 				 'manage_woocommerce',
 				 'woocommerce_gold_price',
 				 'woocommerce_gold_price_page');
@@ -118,8 +117,11 @@ function woocommerce_gold_price() {
 			if ( isset( $_GET['tab'] ) ) {
 			
 				if ( in_array( $_GET['tab'], array( 
+
 													'config',
-													'log' ) ) ) {
+													'log',
+
+													 ) ) ) {
 
 					$tab = esc_attr( $_GET['tab'] );
 
@@ -234,7 +236,9 @@ function woocommerce_gold_price() {
 				while ( $the_query->have_posts() ) {
 
 					$the_query->the_post();
+
 					$the_product = wc_get_product( $the_query->post->ID );
+
 					$edit_url    = admin_url( 'post.php?post=' . $the_product->get_id() . '&action=edit' );
 					$message     = '';
 
@@ -511,12 +515,12 @@ function woocommerce_gold_price() {
 					<td> / <?php echo woocommerce_gold_price_weight_description(); ?></td>
 				</tr>
 				<tr valign="top" class="alternate">
-					<th scope="row">&nbsp;<label for="woocommerce_gold_price_options_22">22k</label></th>
+					<th scope="row" style="padding-left: 1em;"><label for="woocommerce_gold_price_options_22">22k</label></th>
 					<td>
 
 				<?php
 
-				$input = '<input id="woocommerce_gold_price_options_22" name="woocommerce_gold_price_options[22k]" size="10" type="text" value="' . $karats['22k'] . '" />';
+				$input = '<input style="vertical-align: baseline; text-align: right;" id="woocommerce_gold_price_options_22" name="woocommerce_gold_price_options[22k]" size="10" type="text" value="' . $karats['22k'] . '" />';
 
 				switch ($currency_pos) {
 					case 'left' :
@@ -538,11 +542,11 @@ function woocommerce_gold_price() {
 					<td> / <?php echo woocommerce_gold_price_weight_description(); ?></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row">&nbsp;<label for="woocommerce_gold_price_options_18">18k</label></th>
+					<th scope="row" style="padding-left: 1em;"><label for="woocommerce_gold_price_options_18">18k</label></th>
 					<td>
 				<?php
 
-				$input = '<input id="woocommerce_gold_price_options_18" name="woocommerce_gold_price_options[18k]" size="10" type="text" value="' . $karats['18k'] . '" />';
+				$input = '<input style="vertical-align: baseline; text-align: right;" id="woocommerce_gold_price_options_18" name="woocommerce_gold_price_options[18k]" size="10" type="text" value="' . $karats['18k'] . '" />';
 
 				switch ($currency_pos) {
 					case 'left' :
@@ -563,11 +567,11 @@ function woocommerce_gold_price() {
 					<td> / <?php echo woocommerce_gold_price_weight_description(); ?></td>
 				</tr>
 				<tr valign="top" class="alternate">
-					<th scope="row">&nbsp;<label for="woocommerce_gold_price_options_14">14k</label></th>
+					<th scope="row" style="padding-left: 1em;"><label for="woocommerce_gold_price_options_14">14k</label></th>
 					<td>
 				<?php
 
-				$input = '<input id="woocommerce_gold_price_options_14" name="woocommerce_gold_price_options[14k]" size="10" type="text" value="' . $karats['14k'] . '" />';
+				$input = '<input style="vertical-align: baseline; text-align: right;" id="woocommerce_gold_price_options_14" name="woocommerce_gold_price_options[14k]" size="10" type="text" value="' . $karats['14k'] . '" />';
 
 				switch ($currency_pos) {
 					case 'left' :
