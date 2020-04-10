@@ -314,7 +314,7 @@ function woocommerce_gold_price() {
 							update_post_meta( $the_product->get_id(), '_sale_price_dates_from', '' );
 							update_post_meta( $the_product->get_id(), '_sale_price_dates_to', '' );
 
-							$log_message = sprint_f( __( 'Updated price for %1$s', 'woocommerce-gold-price' ), $the_product->get_title() );
+							$log_message = sprintf( __( 'Updated price for %1$s', 'woocommerce-gold-price' ), $the_product->get_title() );
 
 							woocommerce_gold_price_log( $log_message );
 
