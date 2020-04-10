@@ -110,7 +110,7 @@ function woocommerce_gold_price() {
 		
 		do_action( 'admin_enqueue_scripts' );
 
-		$tab = 'log';
+		$tab = 'config';
 
 		if ( isset( $_GET['page'] ) && $_GET['page'] == 'woocommerce_gold_price' ) {
 			
