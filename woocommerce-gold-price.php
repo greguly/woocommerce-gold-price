@@ -314,6 +314,10 @@ function woocommerce_gold_price() {
 							update_post_meta( $the_product->get_id(), '_sale_price_dates_from', '' );
 							update_post_meta( $the_product->get_id(), '_sale_price_dates_to', '' );
 
+							$log_message = sprint_f( __( 'Updated price for %1$s', 'woocommerce-gold-price' ), $the_product->get_title() );
+
+							woocommerce_gold_price_log( $log_message );
+
 
 						}
 					}
@@ -663,9 +667,12 @@ function woocommerce_gold_price() {
 
 	function woocommerce_gold_price_process_simple_settings( $post_id ) {
 
-		// gold product 
+		$message      = '';
+		$gold_product = get_post_meta( $post_id, 'is_gold_price_product', true );
+
+		// is gold product ?
 		$is_gold_price_product = isset( $_POST['is_gold_price_product'] ) ? 'yes' : 'no';
-		update_post_meta( $post_id, 'is_gold_price_product', $is_gold_price_product );
+		$changed_gold_status   = update_post_meta( $post_id, 'is_gold_price_product', $is_gold_price_product );
 
 		update_post_meta( $post_id, 'gold_price_karats', wc_clean( $_POST['karats'] ) );
 
@@ -677,6 +684,33 @@ function woocommerce_gold_price() {
 		$product = wc_get_product( $post_id );
 		$product->set_weight( wc_clean( $_POST['product_weight'] ) );
 		$product->save();
+
+		if ( 'no' == $gold_product ) {
+
+			if ( $changed_gold_status ) { 
+
+				$message = sprintf( __( 'New gold product <strong>%1$s</strong> | Purity: %2$s | Spread: %3$s%% | Fee: %4$s', 'woocommerce-gold-price'  ), $product->get_title(), $_POST['karats'], $_POST['spread'], wc_price( $_POST['fee']) );
+
+			}
+
+		} else {
+
+			if ( $changed_gold_status  ) {
+
+				$message = sprintf( __( 'Unchecked <strong>%1$s</strong>, no longer a gold product', 'woocommerce-gold-price'  ), $product->get_title() );
+
+			} else { 
+
+				$message = sprintf( __( 'Updated <strong>%1$s</strong> | Purity: %2$s | Spread: %3$s%% | Fee: %4$s', 'woocommerce-gold-price'  ), $product->get_title(), $_POST['karats'], $_POST['spread'], wc_price( $_POST['fee']) );
+
+			}
+
+		}
+
+		if ( $message ) {
+			woocommerce_gold_price_log( $message );
+		}
+
 	}
 
 
