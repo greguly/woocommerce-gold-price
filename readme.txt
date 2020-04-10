@@ -11,13 +11,17 @@ WC requires at least: 3.0
 WC tested up to: 4.0.1
 Requires PHP: 5.2
 
-Adds Gold Price to WooCommerce plugin, tested up to WooCommerce 2.6.6
+Adds Gold Price to WooCommerce plugin, tested up to WooCommerce 4.0
 
 == Description ==
 
 ### Add Gold Price to WooCommerce
 
 This plugin enables easily changing prices of gold products, based on their weigth/purity and the gold value.
+
+### New
+
+Now one can also add a spread % value and/or a fee value.
 
 Please notice that WooCommerce must be installed and active.
 
@@ -27,7 +31,7 @@ Please notice that WooCommerce must be installed and active.
 1. Upload plugin files to your plugins folder, or install using WordPress' built-in Add New Plugin installer
 1. Activate the plugin
 1. Insert/Edit a simple product in WooCommerce
-1. Mark it as Gold Product, selecting its 'karat' value of 24, 22, 18 or 14 to indicate the purity of the gold
+1. Mark it as Gold Product and select its 'karat' value of 24, 22, 18 or 14 to indicate the purity of the gold
 1. Add a Spread % and/or a fee to be added 
 1. Fill in its weight value
 1. Update the gold price at WooCommerce -> Gold Price and all products with 'karat' field will have their prices updated
@@ -40,7 +44,7 @@ Please notice that WooCommerce must be installed and active.
 
 == Frequently Asked Questions ==
 
-= How many karats can be added/used? =
+= How many karats can be used? =
 
 * Only 24k, 22k, 18k and 14k.
 
@@ -54,7 +58,7 @@ Please notice that WooCommerce must be installed and active.
 
 = I see no products under "Gold priced products" ( WooCommerce -> Gold Price ) =
 
-* This is because you have no gold products, e.g. products with Custom Fields named karat and values 24, 22, 18 or 14. See screenshots to better understand.
+* This is because you have no gold products, e.g. products marked as Gold product. See edit product page.
 
 = What "Product was on sale, can't calculate sale price" means? =
 
@@ -68,6 +72,7 @@ There is a handy link to edit the product, if one whishes to put it on sale agai
 * New interface for marking product as gold, not longer using 'karat' Custom Fields
 * Added option for Spread %
 * Added option for Fee
+* Added log 
 = 2.6.6 2016.10.22 =
 * Updated for WordPress 4.6.1 and WooCommerce 2.6.6, added a message when a gold product has a non-calculated price.
 = 2.4.4 2015.08.18 =
