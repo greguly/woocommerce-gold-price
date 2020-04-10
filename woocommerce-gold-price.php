@@ -689,7 +689,7 @@ function woocommerce_gold_price() {
 
 			if ( $changed_gold_status ) { 
 
-				$message = sprintf( __( 'New gold product <strong>%1$s</strong> | Purity: %2$s | Spread: %3$s%% | Fee: %4$s', 'woocommerce-gold-price'  ), $product->get_title(), $_POST['karats'], $_POST['spread'], wc_price( $_POST['fee']) );
+				$message = sprintf( __( 'Checked <strong>%1$s</strong> | Purity: %2$s | Spread: %3$s%% | Fee: %4$s', 'woocommerce-gold-price'  ), $product->get_title(), $_POST['karats'], $_POST['spread'], wc_price( $_POST['fee']) );
 
 			}
 
@@ -697,7 +697,7 @@ function woocommerce_gold_price() {
 
 			if ( $changed_gold_status  ) {
 
-				$message = sprintf( __( 'Unchecked <strong>%1$s</strong>, no longer a gold product', 'woocommerce-gold-price'  ), $product->get_title() );
+				$message = sprintf( __( 'Unchecked <strong>%1$s</strong>, no longer a gold product.', 'woocommerce-gold-price'  ), $product->get_title() );
 
 			} else { 
 
