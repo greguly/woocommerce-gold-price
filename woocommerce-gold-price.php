@@ -25,7 +25,7 @@ add_action( 'plugins_loaded', 'woocommerce_gold_price', 20 );
 
 function woocommerce_gold_price() {
 
-	if ( ! class_exists( 'Woocommerce' ) ) {  // Exit if WooCommerce isn't available
+	if ( ! class_exists( 'woocommerce' ) ) {  // Exit if WooCommerce isn't available
 		return false;
 	}
 
@@ -491,8 +491,8 @@ function woocommerce_gold_price() {
 				<thead>
 					<tr valign="top">
 						<th scope="col" style="padding-left: 1em;"><?php esc_html_e( 'Karats', 'woocommerce-gold-price' )?></th>
-						<th scope="col"><?php esc_html_e( 'Price', 'woocommerce' ) ?></td>
-						<th scope="col"><?php esc_html_e( 'Weight Unit', 'woocommerce' ) ?></td>
+						<th scope="col"><?php esc_html_e( 'Price', 'woocommerce-gold-price' ) ?></td>
+						<th scope="col"><?php esc_html_e( 'Weight Unit', 'woocommerce-gold-price' ) ?></td>
 					</tr>
 				</thead>
 
