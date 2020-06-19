@@ -2,19 +2,16 @@
 Contributors: Gabriel Reguly
 Donate link: http://omniwp.com.br/donate/
 Tags: WooCommerce, Gold Price, Gold Based prices
-
 Requires at least: 3.5
 Tested up to: 5.4.2
-
-Stable tag: 4.2
-
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
 WC requires at least: 3.0
 WC tested up to: 4.2
+Requires PHP: 5.2
 
-Adds Gold Price to WooCommerce plugin, tested up to WooCommerce 4.2
+Adds Gold Price to WooCommerce plugin, tested up to WooCommerce 4.0
 
 == Description ==
 
@@ -26,11 +23,9 @@ This plugin enables easily changing prices of gold products, based on their weig
 
 Now one can also add a spread % value and/or a fee value.
 
-Notice that WooCommerce must be installed and active.
-
 ### Support
 
-Plase use the WordPress.org forums for community support as I cannot offer support directly for free.
+Please use the WordPress.org forums for community support as I cannot offer support directly for free.
 
 If you want help with a customisation, [hire a developer!](http://omniwp.com.br/hire-a-developer/)
 
@@ -75,11 +70,11 @@ If you want help with a customisation, [hire a developer!](http://omniwp.com.br/
 * Means that the product no longer is on sale, as the plugin can't calculate sale prices and just removed it.
 There is a handy link to edit the product, if one whishes to put it on sale again.
 
-
-
 == Changelog ==
 
-= 4.0.0 2020.04.09 =
+= 4.2 2020.06.19 =
+* Updated for WordPress 5.4 and WooCommerce 4.2;
+= 4.0 2020.04.09 =
 * Updated for WordPress 5.4 and WooCommerce 4.0;
 * New interface for marking product as gold, not longer using 'karat' Custom Fields
 * Added option for Spread %
@@ -108,7 +103,9 @@ There is a handy link to edit the product, if one whishes to put it on sale agai
 
 == Upgrade Notice ==
 
-= 4.0.0 =
+= 4.2 =
+* Updated for WooCommerce 4.2
+= 4.0 =
 * Updated for WooCommerce 4.0
 = 2.6.6 =
 * Updated for WooCommerce 2.6
